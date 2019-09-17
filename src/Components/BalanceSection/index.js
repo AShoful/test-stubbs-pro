@@ -96,7 +96,7 @@ class BalanceSection extends React.Component {
                 onClick = {() =>this.handleAdd(line)}
                 disabled = {!line || store.includes(line)}
                 > 
-                Добавить строчку
+                Добавить категорию
             </Button>
             <Button
                 onClick = {() => this.onSaveState()}
