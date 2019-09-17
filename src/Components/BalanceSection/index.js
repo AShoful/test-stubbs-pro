@@ -2,7 +2,7 @@ import React from 'react'
 import Input from '../UI/Input'
 import Button from '../UI/Button'
 import ListItems from '../ListItems'
-import { initialStore, title} from './function'
+import { initialStore, title} from './functionInit'
 
 import  classes from './BalanceSection.module.css'
 
@@ -74,7 +74,7 @@ class BalanceSection extends React.Component {
     }
 
     render(){
-        let {line, store} = this.state 
+        let {line, store} = this.state        
     return <div className = {classes.BalanceSection}>
         <h1 className = {classes.label}>{title(this.props.name)}</h1>
         <ListItems 
@@ -85,7 +85,7 @@ class BalanceSection extends React.Component {
             />
         <div className = {classes.total}>
             <p>ИТОГО</p>  
-            <p>{this.total()}</p>            
+            <p>{this.total()} ₴</p>            
         </div>    
         <div  className = {classes.edit}>
             <Input 
@@ -105,7 +105,7 @@ class BalanceSection extends React.Component {
             </Button>    
            
         </div>
-    </div>
+     </div>
     }
 }
 
