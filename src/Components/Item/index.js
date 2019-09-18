@@ -1,28 +1,40 @@
-import React from 'react'
+import React, {useState} from 'react'
 import classes from './Item.module.css'
-import Input from '../UI/Input'
+import Transcript from '../Transcript'
 
 
-const Item = ({index, item, handleValue, handleName, remove}) =>    
+const Item = ({index, item, handleValue, handleName, remove}) => { 
+    const [visible, setVisible] = useState(false)
     
+    const total = () =>{
+        let sum = 0;
+        for (let i = 0; i < item.value.length; i++)
+        sum += item.value[i]
+        return sum
+    } 
+        
+    return (
+    <React.Fragment>
         <div className = {classes.Item}>
             <div className = {classes.name}>
                 <span>{index + 1} &ensp;</span>
-                <Input 
+                <input 
                     value = {item.name}
                     onChange = {(e) => handleName(index, e.target.value)}
                 />
             </div>
             <div className = {classes.value}>
-                <span onClick = {() => remove(item.id)}>X &ensp;</span>
-                <Input 
-                    value = {item.value}
-                    onChange = {(e) => handleValue(index, e.target.value)}
-                    size = {'small'}
-                />
+                <span onClick = {() => setVisible(!visible)} >+</span>
+                <p>{total()}</p>
+                <span onClick = {() => remove(item.id)}>&times;</span>
             </div>
-       </div> 
-  
-
+        </div> 
+        { visible ? 
+            <Transcript 
+                handleValue = {handleValue}
+                index = {index}
+        /> : null}
+    </React.Fragment>)
+}      
 
 export default Item

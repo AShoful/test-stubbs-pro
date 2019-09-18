@@ -4,7 +4,7 @@ import classes from './ListItems.module.css'
 
 const ListItems = ({items, onremove, handleName, handleValue}) => 
     <div className = {classes.ListItems}>
-        {items.map((item, index) => 
+        {items.store.map((item, index) => 
         <Item key = {item.id}
             remove = {onremove} 
             handleValue = {handleValue}
@@ -13,6 +13,6 @@ const ListItems = ({items, onremove, handleName, handleValue}) =>
             index = {index}
             />)}
     </div>
-    
+   
 export default ListItems    
 

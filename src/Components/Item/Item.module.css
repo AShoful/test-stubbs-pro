@@ -3,33 +3,43 @@
     justify-content: space-between;
     margin-bottom: 5px;
     border-bottom: 1px solid grey;
+    align-items: center
 }
 
 .Item input{
     padding: 5px 0;
     border: none;
     font-style: italic;
-    font-size:16px;
+    font-size: 16px;
     cursor: text;
+    width: 85%;
+    outline: none;
 }
 
 .value{
     display: flex;
     justify-content: space-between;
-    
+    align-items: center
 }
 
 .name{
     display: flex;
     justify-content: flex-start;
-    width: 100%
-    
+    width: 85%
 }
 
 .Item span{
     cursor: pointer;
-    font-style: italic;
+    /* font-style: italic; */
     font-weight: 500;
+    margin-right: 5px;
+    
+}
+
+.Item p{
+    font-style: italic;
+    font-weight: 600;
+    margin-right: 5px;
 }
 
 

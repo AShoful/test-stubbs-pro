@@ -27,7 +27,7 @@ class BalanceSection extends React.Component {
 
     handleAdd = (value) => {
         this.setState({
-            store: [...this.state.store, {id: Date.now(), name: value, value: 0}]
+            store: [...this.state.store, {id: Date.now(), name: value, value: []}]
         }, () => this.reset()
         )
     }
@@ -35,7 +35,7 @@ class BalanceSection extends React.Component {
     handleValue = ( index, value) => {
         if(!isNaN(value)){
         const newStore = this.state.store
-        newStore[index].value = +value
+        newStore[index].value.push(+value)
         this.setState({
             store: newStore
         })}
@@ -68,17 +68,20 @@ class BalanceSection extends React.Component {
         const {store} = this.state
         let total = 0
         for(let i = 0; i < store.length; i++ ){
-        total = total + store[i].value
+            for(let j = 0; j < store[i].value.length; j++){
+                total += store[i].value[j]
+            }
         }
         return total
     }
 
     render(){
-        let {line, store} = this.state        
+        let {line, store} = this.state 
+              
     return <div className = {classes.BalanceSection}>
         <h1 className = {classes.label}>{title(this.props.name)}</h1>
         <ListItems 
-            items = {store}
+            items = {this.state}
             onremove = {this.handleRemove}
             handleValue = {this.handleValue} 
             handleName = {this.handleName}
