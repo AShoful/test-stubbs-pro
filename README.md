@@ -19,3 +19,5 @@
 Использование ReactJs
 Использовать css препроцессоры или PostCss
 Сборка на Webpack
+
+Адрес приложения https://AShoful.github.io/test-stubbs-pro
