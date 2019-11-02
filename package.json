@@ -11,6 +11,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
   },
   "browserslist": {
@@ -34,8 +36,11 @@
   "bugs": {
     "url": "https://github.com/AShoful/test-stubbs-pro/issues"
   },
-  "homepage": "https://github.com/AShoful/test-stubbs-pro#readme",
+  "homepage": "https://AShoful.github.io/test-stubbs-pro",
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "devDependencies": {
+    "gh-pages": "^2.1.1"
   }
 }
