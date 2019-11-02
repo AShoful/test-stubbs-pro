@@ -64,16 +64,9 @@ class BalanceSection extends React.Component {
         alert(`Раздел ${title(name)} успешно сохранен`)
     }
 
-    total = () => {
-        const {store} = this.state
-        let total = 0
-        for(let i = 0; i < store.length; i++ ){
-            for(let j = 0; j < store[i].value.length; j++){
-                total += store[i].value[j]
-            }
-        }
-        return total
-    }
+    total = () => this.state.store.reduce((res, i) =>
+         res += i.value.reduce((res, i) => res += i, 0), 0)
+       
 
     render(){
         let {line, store} = this.state 

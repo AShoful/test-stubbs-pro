@@ -6,12 +6,7 @@ import Transcript from '../Transcript'
 const Item = ({index, item, handleValue, handleName, remove}) => { 
     const [visible, setVisible] = useState(false)
     
-    const total = () =>{
-        let sum = 0;
-        for (let i = 0; i < item.value.length; i++)
-        sum += item.value[i]
-        return sum
-    } 
+    const total = () => item.value.reduce((res, i) => res += i, 0)
         
     return (
     <React.Fragment>
