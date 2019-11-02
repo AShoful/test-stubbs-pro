@@ -81,7 +81,7 @@ class BalanceSection extends React.Component {
     return <div className = {classes.BalanceSection}>
         <h1 className = {classes.label}>{title(this.props.name)}</h1>
         <ListItems 
-            items = {this.state}
+            store = {store}
             onremove = {this.handleRemove}
             handleValue = {this.handleValue} 
             handleName = {this.handleName}
@@ -102,7 +102,7 @@ class BalanceSection extends React.Component {
                 Добавить категорию
             </Button>
             <Button
-                onClick = {() => this.onSaveState()}
+                onClick = {this.onSaveState}
                 >
                 Сохранить изменения   
             </Button>    
