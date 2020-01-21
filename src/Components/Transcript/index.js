@@ -3,7 +3,7 @@ import classes from './Transcript.module.css'
 
 const Transcript = ({ handleValue, index, item}) => {
     const [value, setValue] = useState(0)
-    
+    console.log(value)
     return <React.Fragment> 
         {item.value.map((it, i) => it ? 
         <div className = {classes.history}
@@ -13,13 +13,15 @@ const Transcript = ({ handleValue, index, item}) => {
         </div> : 
         null)}
         <div className = {classes.Transcript} >
-            <span onClick = {() =>
-                {handleValue(index, value); setValue(0)} }
-                >добавить</span> 
+            <button 
+            onClick = {() => {handleValue(index, parseFloat(value)); setValue(0)} }
+            disabled = {!parseFloat(value)}
+            >добавить</button> 
             <input
             type = 'text'
             onChange = {(e) => setValue(e.target.value)}
-            value = {value}/>
+            value = {value}
+            />
         </div>
     </React.Fragment>
 }   
