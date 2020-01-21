@@ -6,8 +6,7 @@ import Transcript from '../Transcript'
 const Item = ({index, item, handleValue, handleName, remove}) => { 
     const [visible, setVisible] = useState(false)
     
-    const total = () => item.value.reduce((res, i) => res += i, 0)
-        
+    const total = () => item.value.reduce((res, i) => res += i.value ? i.value : i, 0)
     return (
     <React.Fragment>
         <div className = {classes.Item}>
@@ -28,6 +27,7 @@ const Item = ({index, item, handleValue, handleName, remove}) => {
             <Transcript 
                 handleValue = {handleValue}
                 index = {index}
+                item = {item}
         /> : null}
     </React.Fragment>)
 }      
