@@ -29,5 +29,12 @@ export const includes = (store, str) => store.map(item =>
     item.name.toLowerCase()).includes(str.trim().toLowerCase())
 
 export const  total = (store) => store.reduce((res, i) =>
-res += i.value.reduce((res, i) => res += i.value, 0), 0)    
+    res += i.value.reduce((res, i) => res += i.value, 0), 0)
+
+export const  clearState = (str) => {
+    if (window.confirm('Вы хотите очистить раздел?')) {
+    localStorage.removeItem(`store${str}`);
+    window.location.reload()
+    }
+} 
  

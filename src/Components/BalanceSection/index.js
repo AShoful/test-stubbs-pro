@@ -3,7 +3,7 @@ import Input from '../UI/Input'
 import Button from '../UI/Button'
 import ListItems from '../ListItems'
 import {initialStore, title, 
-    onSaveState, includes, total} from './function'
+    onSaveState, includes, total, clearState} from './function'
 
 import  classes from './BalanceSection.module.css'
 
@@ -64,7 +64,11 @@ class BalanceSection extends React.Component {
         const {name} = this.props
                                       
     return <div className={classes.BalanceSection}>
-        <h1 className={classes.label}>{title(name)}</h1>
+        <h1 className={classes.label} 
+            onClick={() => {clearState(name)}}
+        >
+            {title(name)}
+        </h1>
         <ListItems 
             store={store}
             onremove={this.handleRemove}

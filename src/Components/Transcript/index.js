@@ -22,7 +22,7 @@ const Transcript = ({ handleValue, index, item, setVisible}) => {
         </div> : null)}
         <div className={classes.Transcript} >
             <Button 
-            onClick={() => {handleValue(index, parseFloat(value)); setValue(0)} }
+            onClick={() => {handleValue(index, parseFloat(value)); setValue(0); setVisible(false)} }
             disabled={!parseFloat(value)}
             size={'small'}
             >
