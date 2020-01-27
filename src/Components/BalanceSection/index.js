@@ -84,7 +84,7 @@ class BalanceSection extends React.Component {
                 onClick={() =>this.handleAdd(line)}
                 disabled={!line.trim() || includes(store, line)}
                 > 
-                Добавить категорию
+                Добавить категорию {title(name).toLocaleLowerCase().slice(0, title(name).length-1)}ов
             </Button>
             <Button size={'main'}
                 onClick={() => {onSaveState(name, store)}}
