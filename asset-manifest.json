@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/test-stubbs-pro/static/css/main.344a5db1.chunk.css",
-    "main.js": "/test-stubbs-pro/static/js/main.9a8ef74a.chunk.js",
-    "main.js.map": "/test-stubbs-pro/static/js/main.9a8ef74a.chunk.js.map",
+    "main.css": "/test-stubbs-pro/static/css/main.ab502d06.chunk.css",
+    "main.js": "/test-stubbs-pro/static/js/main.b58b88fc.chunk.js",
+    "main.js.map": "/test-stubbs-pro/static/js/main.b58b88fc.chunk.js.map",
     "runtime~main.js": "/test-stubbs-pro/static/js/runtime~main.334b0046.js",
     "runtime~main.js.map": "/test-stubbs-pro/static/js/runtime~main.334b0046.js.map",
     "static/js/2.265fc630.chunk.js": "/test-stubbs-pro/static/js/2.265fc630.chunk.js",
     "static/js/2.265fc630.chunk.js.map": "/test-stubbs-pro/static/js/2.265fc630.chunk.js.map",
     "index.html": "/test-stubbs-pro/index.html",
-    "precache-manifest.a06392be007d88f2aef5e753b9c3e106.js": "/test-stubbs-pro/precache-manifest.a06392be007d88f2aef5e753b9c3e106.js",
+    "precache-manifest.6b04add80b96ffd736b2ac1118742fb3.js": "/test-stubbs-pro/precache-manifest.6b04add80b96ffd736b2ac1118742fb3.js",
     "service-worker.js": "/test-stubbs-pro/service-worker.js",
-    "static/css/main.344a5db1.chunk.css.map": "/test-stubbs-pro/static/css/main.344a5db1.chunk.css.map"
+    "static/css/main.ab502d06.chunk.css.map": "/test-stubbs-pro/static/css/main.ab502d06.chunk.css.map"
   }
 }
