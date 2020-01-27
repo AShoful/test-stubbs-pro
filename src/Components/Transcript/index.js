@@ -1,26 +1,38 @@
 import React, {useState} from 'react'
 import classes from './Transcript.module.css'  
+import Input from '../UI/Input'
+import Button from '../UI/Button'
 
-const Transcript = ({ handleValue, index, item}) => {
+const Transcript = ({ handleValue, index, item, setVisible}) => {
     const [value, setValue] = useState(0)
-    console.log(value)
+    
     return <React.Fragment> 
-        {item.value.map((it, i) => it ? 
-        <div className = {classes.history}
-            key = {i}> 
-            <span> {it.id ? new Date(it.id).toLocaleString().split(", ")[0] : '01.01.2019'}</span> 
-            <span>{it.value ? it.value : it}</span>
-        </div> : 
-        null)}
-        <div className = {classes.Transcript} >
-            <button 
-            onClick = {() => {handleValue(index, parseFloat(value)); setValue(0)} }
-            disabled = {!parseFloat(value)}
-            >добавить</button> 
-            <input
-            type = 'text'
-            onChange = {(e) => setValue(e.target.value)}
-            value = {value}
+        <span className={classes.close} onClick={()=>setVisible(false)}>
+            &times;
+        </span>
+        {item.value.map((_, i) => _ ? 
+        <div className={classes.history}
+            key={i}> 
+            <span className={classes.details}> 
+                {new Date(_.id).toLocaleString().split(", ")[0]}
+            </span> 
+            <span className={classes.details}>
+                {_.value}
+            </span>
+        </div> : null)}
+        <div className={classes.Transcript} >
+            <Button 
+            onClick={() => {handleValue(index, parseFloat(value)); setValue(0)} }
+            disabled={!parseFloat(value)}
+            size={'small'}
+            >
+            добавить
+            </Button> 
+            <Input
+            type='text'
+            onChange={(e) => setValue(e.target.value)}
+            value={value}
+            size={'small'}
             />
         </div>
     </React.Fragment>

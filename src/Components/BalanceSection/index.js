@@ -2,7 +2,8 @@ import React from 'react'
 import Input from '../UI/Input'
 import Button from '../UI/Button'
 import ListItems from '../ListItems'
-import { initialStore, title} from './functionInit'
+import {initialStore, title, 
+    onSaveState, includes, total} from './function'
 
 import  classes from './BalanceSection.module.css'
 
@@ -27,7 +28,8 @@ class BalanceSection extends React.Component {
 
     handleAdd = (value) => {
         this.setState({
-            store: [...this.state.store, {id: Date.now(), name: value, value: []}]
+            store: [...this.state.store, 
+                {id: Date.now(), name: value, value: []}]
         }, () => this.reset()
         )
     }
@@ -41,7 +43,7 @@ class BalanceSection extends React.Component {
         })}
     }
 
-    handleName = ( index, value) => {
+    handleName = (index, value) => {
         const newStore = this.state.store
         newStore[index].name = value
         this.setState({
@@ -57,45 +59,35 @@ class BalanceSection extends React.Component {
     )}
     }
 
-    onSaveState = () => {
-        const {name} = this.props
-        localStorage.removeItem(`store${name}`)
-        localStorage.setItem(`store${name}`, JSON.stringify(this.state.store))
-        alert(`Раздел ${title(name)} успешно сохранен`)
-    }
-
-    total = () => this.state.store.reduce((res, i) =>
-         res += i.value.reduce((res, i) => res += i.value ? i.value : i, 0), 0)
-       
-
     render(){
         let {line, store} = this.state 
-                              
-    return <div className = {classes.BalanceSection}>
-        <h1 className = {classes.label}>{title(this.props.name)}</h1>
+        const {name} = this.props
+                                      
+    return <div className={classes.BalanceSection}>
+        <h1 className={classes.label}>{title(name)}</h1>
         <ListItems 
-            store = {store}
-            onremove = {this.handleRemove}
-            handleValue = {this.handleValue} 
-            handleName = {this.handleName}
+            store={store}
+            onremove={this.handleRemove}
+            handleValue={this.handleValue} 
+            handleName={this.handleName}
             />
-        <div className = {classes.total}>
-            <p>ИТОГО</p>  
-            <p>{this.total()} ₴</p>            
+        <div className={classes.total}>
+            <span className={classes.totalData}>ИТОГО</span>  
+            <span className={classes.totalData}>{total(store)} ₴</span>            
         </div>    
-        <div  className = {classes.edit}>
-            <Input 
-                onChange = {this.handleChange}
-                value = {this.state.line}
+        <div  className={classes.edit}>
+            <Input size={'main'}
+                onChange={this.handleChange}
+                value={this.state.line}
             />
-            <Button 
-                onClick = {() =>this.handleAdd(line)}
-                disabled = {!line || store.includes(line)}
+            <Button size={'main'}
+                onClick={() =>this.handleAdd(line)}
+                disabled={!line.trim() || includes(store, line)}
                 > 
                 Добавить категорию
             </Button>
-            <Button
-                onClick = {this.onSaveState}
+            <Button size={'main'}
+                onClick={() => {onSaveState(name, store)}}
                 >
                 Сохранить изменения   
             </Button>    

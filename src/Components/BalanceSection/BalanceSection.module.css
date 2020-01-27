@@ -4,6 +4,7 @@
     border-right: 1px solid grey;
     border-left: 1px solid grey;
 }
+
 .label{
     text-align: center;
     margin-bottom: 25px; 
@@ -24,7 +25,7 @@
     justify-content: space-between;
 }
 
-.total p{
+.totalData{
     font-style: italic;
     font-weight: 700
 }
